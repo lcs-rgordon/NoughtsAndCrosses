@@ -45,14 +45,17 @@ struct GameBoardView: View {
                     
                     TileView(state: $upperLeft,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     
                     TileView(state: $upperMiddle,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     TileView(state: $upperRight,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     
                     Spacer()
                 }
@@ -62,13 +65,16 @@ struct GameBoardView: View {
                     
                     TileView(state: $middleLeft,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     TileView(state: $middleMiddle,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     TileView(state: $middleRight,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     
                     Spacer()
                 }
@@ -78,13 +84,16 @@ struct GameBoardView: View {
                     
                     TileView(state: $lowerLeft,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     TileView(state: $lowerMiddle,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     TileView(state: $lowerRight,
                              player: currentPlayer,
-                             turn: $currentTurn)
+                             turn: $currentTurn,
+                             gameWon: gameWon)
                     
                     Spacer()
                 }

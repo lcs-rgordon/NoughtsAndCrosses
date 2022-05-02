@@ -14,6 +14,7 @@ struct TileView: View {
     @Binding var state: String
     let player: String
     @Binding var turn: Int
+    let gameWon: Bool
     
     // For animating the tile
     @State var tileRotation = 0.0
@@ -32,10 +33,11 @@ struct TileView: View {
                 
                 print("inside tile")
                 
-                // Only continue if state of this tile
-                // is empty
-                // (disregard tap if tile already filled)
-                guard state == "" else {
+                // Only continue if state of this tile is empty
+                // ...AND...
+                // the game has not yet been won
+                // (disregard tap if tile already filled or game has been won)
+                guard state == "", gameWon == false else {
                     return
                 }
                 
@@ -62,12 +64,15 @@ struct TileView_Previews: PreviewProvider {
     static var previews: some View {
         TileView(state: .constant(nought),
                  player: cross,
-                 turn: .constant(1))
+                 turn: .constant(1),
+                 gameWon: false)
         TileView(state: .constant(cross),
                  player: nought,
-                 turn: .constant(1))
+                 turn: .constant(1),
+                 gameWon: false)
         TileView(state: .constant(""),
                  player: nought,
-                 turn: .constant(1))
+                 turn: .constant(1),
+                 gameWon: false)
     }
 }
