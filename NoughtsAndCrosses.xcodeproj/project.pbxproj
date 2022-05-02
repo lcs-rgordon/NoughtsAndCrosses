@@ -11,6 +11,8 @@
 		81DDFE6D28204187008DED99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DDFE6C28204187008DED99 /* Assets.xcassets */; };
 		81DDFE7028204187008DED99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81DDFE6F28204187008DED99 /* Preview Assets.xcassets */; };
 		81DDFE78282041AD008DED99 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE77282041AD008DED99 /* GameBoardView.swift */; };
+		81DDFE7C28204200008DED99 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE7B28204200008DED99 /* TileView.swift */; };
+		81DDFE7F28204268008DED99 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DDFE7E28204268008DED99 /* SharedConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		81DDFE6C28204187008DED99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81DDFE6F28204187008DED99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		81DDFE77282041AD008DED99 /* GameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
+		81DDFE7B28204200008DED99 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		81DDFE7E28204268008DED99 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +74,27 @@
 		81DDFE762820418D008DED99 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				81DDFE7D28204250008DED99 /* Model */,
+				81DDFE79282041F0008DED99 /* Helpers */,
 				81DDFE77282041AD008DED99 /* GameBoardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		81DDFE79282041F0008DED99 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				81DDFE7B28204200008DED99 /* TileView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		81DDFE7D28204250008DED99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81DDFE7E28204268008DED99 /* SharedConstants.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81DDFE7F28204268008DED99 /* SharedConstants.swift in Sources */,
 				81DDFE6928204185008DED99 /* NoughtsAndCrossesApp.swift in Sources */,
+				81DDFE7C28204200008DED99 /* TileView.swift in Sources */,
 				81DDFE78282041AD008DED99 /* GameBoardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
