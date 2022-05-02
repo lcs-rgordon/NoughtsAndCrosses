@@ -11,7 +11,7 @@ struct TileView: View {
     
     // MARK: Stored properties
     @Binding var state: String
-    @Binding var player: String
+    let player: String
     @Binding var turn: Int
     
     // MARK: Computed properties
@@ -35,13 +35,6 @@ struct TileView: View {
                 // Now, fill tile with symbol for current player
                 state = player
                 
-                // Change the current player for next turn
-                if player == nought {
-                    player = cross
-                } else {
-                    player = nought
-                }
-                
                 // Move to next turn
                 turn += 1
             }
@@ -52,13 +45,13 @@ struct TileView: View {
 struct TileView_Previews: PreviewProvider {
     static var previews: some View {
         TileView(state: .constant(nought),
-                 player: .constant(cross),
+                 player: cross,
                  turn: .constant(1))
         TileView(state: .constant(cross),
-                 player: .constant(nought),
+                 player: nought,
                  turn: .constant(1))
         TileView(state: .constant(""),
-                 player: .constant(nought),
+                 player: nought,
                  turn: .constant(1))
     }
 }

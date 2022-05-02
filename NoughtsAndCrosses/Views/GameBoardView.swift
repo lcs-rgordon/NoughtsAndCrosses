@@ -28,6 +28,9 @@ struct GameBoardView: View {
     // Which player's turn is it?
     @State var currentPlayer = nought
     
+    // Whether the current game has been won or not
+    @State var gameWon = false
+    
     // MARK: Computed properties
     var body: some View {
         VStack {
@@ -41,66 +44,123 @@ struct GameBoardView: View {
                     Spacer()
                     
                     TileView(state: $upperLeft,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
-
+                    
                     TileView(state: $upperMiddle,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
                     TileView(state: $upperRight,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
-
+                    
                     Spacer()
                 }
-
+                
                 HStack {
                     Spacer()
                     
                     TileView(state: $middleLeft,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
                     TileView(state: $middleMiddle,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
                     TileView(state: $middleRight,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
-
+                    
                     Spacer()
                 }
-
+                
                 HStack {
                     Spacer()
                     
                     TileView(state: $lowerLeft,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
                     TileView(state: $lowerMiddle,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
                     TileView(state: $lowerRight,
-                             player: $currentPlayer,
+                             player: currentPlayer,
                              turn: $currentTurn)
-
+                    
                     Spacer()
                 }
-
+                
             }
             
             Spacer()
             
-            Text("Turn is: \(currentTurn)")
+            // Print turn, or whether game is won
+            Text(gameWon ? "\(currentPlayer) wins" : "Turn is: \(currentTurn)")
             
             Spacer()
             
             Text("Current player is: \(currentPlayer)")
-
+            
             Spacer()
         }
         .onChange(of: currentTurn) { newValue in
             print("Hello, it is now turn \(newValue)")
+            
+            // Has somebody won?
+            checkForWin()
+            
         }
+    }
+    
+    // MARK: Functions
+    func checkForWin() {
+        
+        // Win across top
+        if
+            upperLeft == currentPlayer &&
+                upperMiddle == currentPlayer &&
+                upperRight == currentPlayer ||
+
+                middleLeft == currentPlayer &&
+                middleMiddle == currentPlayer &&
+                middleRight == currentPlayer ||
+
+                lowerLeft == currentPlayer &&
+                lowerMiddle == currentPlayer &&
+                lowerRight == currentPlayer ||
+
+                upperLeft == currentPlayer &&
+                middleLeft == currentPlayer &&
+                lowerLeft == currentPlayer ||
+
+                upperMiddle == currentPlayer &&
+                middleMiddle == currentPlayer &&
+                lowerMiddle == currentPlayer ||
+
+                upperRight == currentPlayer &&
+                middleRight == currentPlayer &&
+                lowerRight == currentPlayer ||
+
+                upperLeft == currentPlayer &&
+                middleMiddle == currentPlayer &&
+                lowerRight == currentPlayer ||
+
+                upperRight == currentPlayer &&
+                middleMiddle == currentPlayer &&
+                lowerLeft == currentPlayer
+        {
+            
+            gameWon = true
+            return
+            
+        }
+        
+        // Nobody won, change the current player
+        if currentPlayer == nought {
+            currentPlayer = cross
+        } else {
+            currentPlayer = nought
+        }
+        
     }
 }
 
