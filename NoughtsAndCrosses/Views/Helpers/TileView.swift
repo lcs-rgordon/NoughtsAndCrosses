@@ -10,9 +10,13 @@ import SwiftUI
 struct TileView: View {
     
     // MARK: Stored properties
+    
     @Binding var state: String
     let player: String
     @Binding var turn: Int
+    
+    // For animating the tile
+    @State var tileRotation = 0.0
     
     // MARK: Computed properties
     var body: some View {
@@ -21,6 +25,8 @@ struct TileView: View {
             .frame(width: 50, height: 50)
             .border(.foreground, width: 3)
             .padding(5)
+            .rotation3DEffect(.degrees(tileRotation),
+                              axis: (x: 0, y: 1, z: 0))
             .onTapGesture {
                 
                 print("inside tile")
@@ -32,8 +38,17 @@ struct TileView: View {
                     return
                 }
                 
-                // Now, fill tile with symbol for current player
-                state = player
+                withAnimation(
+                    Animation
+                        .easeIn(duration: 0.5)
+                ) {
+                    // Spin the tile
+                    tileRotation = 720
+
+                    // Now, fill tile with symbol for current player
+                    state = player
+                }
+                
                 
                 // Move to next turn
                 turn += 1
