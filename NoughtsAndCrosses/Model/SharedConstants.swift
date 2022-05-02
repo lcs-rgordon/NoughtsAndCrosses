@@ -10,3 +10,4 @@ import Foundation
 // Shared constants
 let nought = "○"    // "white circle"
 let cross = "×"     // "multiplication sign"
+let empty = ""

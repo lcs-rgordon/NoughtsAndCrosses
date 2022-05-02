@@ -37,7 +37,7 @@ struct TileView: View {
                 // ...AND...
                 // the game has not yet been won
                 // (disregard tap if tile already filled or game has been won)
-                guard state == "", gameWon == false else {
+                guard state == empty, gameWon == false else {
                     return
                 }
                 
@@ -70,7 +70,7 @@ struct TileView_Previews: PreviewProvider {
                  player: nought,
                  turn: .constant(1),
                  gameWon: false)
-        TileView(state: .constant(""),
+        TileView(state: .constant(empty),
                  player: nought,
                  turn: .constant(1),
                  gameWon: false)

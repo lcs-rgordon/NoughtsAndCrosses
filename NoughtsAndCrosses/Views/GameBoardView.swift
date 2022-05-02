@@ -11,15 +11,15 @@ struct GameBoardView: View {
     
     // MARK: Stored properties
     // Game board state, all nine positions
-    @State var upperLeft = ""
-    @State var upperMiddle = ""
-    @State var upperRight = ""
-    @State var middleLeft = ""
-    @State var middleMiddle = ""
-    @State var middleRight = ""
-    @State var lowerLeft = ""
-    @State var lowerMiddle = ""
-    @State var lowerRight = ""
+    @State var upperLeft = empty
+    @State var upperMiddle = empty
+    @State var upperRight = empty
+    @State var middleLeft = empty
+    @State var middleMiddle = empty
+    @State var middleRight = empty
+    @State var lowerLeft = empty
+    @State var lowerMiddle = empty
+    @State var lowerRight = empty
     
     // Tracks the overall number of turns
     // Game over after 9 turns, or when a player wins
@@ -113,15 +113,15 @@ struct GameBoardView: View {
 
             Button(action: {
                 
-                upperLeft = ""
-                upperMiddle = ""
-                upperRight = ""
-                middleLeft = ""
-                middleMiddle = ""
-                middleRight = ""
-                lowerLeft = ""
-                lowerMiddle = ""
-                lowerRight = ""
+                upperLeft = empty
+                upperMiddle = empty
+                upperRight = empty
+                middleLeft = empty
+                middleMiddle = empty
+                middleRight = empty
+                lowerLeft = empty
+                lowerMiddle = empty
+                lowerRight = empty
                 
                 gameWon = false
                 currentTurn = 1
