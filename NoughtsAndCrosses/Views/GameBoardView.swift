@@ -99,6 +99,30 @@ struct GameBoardView: View {
             Spacer()
             
             Text("Current player is: \(currentPlayer)")
+            // Only show when game is not over
+            .opacity(!gameWon ? 1.0 : 0.0)
+
+            Button(action: {
+                
+                upperLeft = ""
+                upperMiddle = ""
+                upperRight = ""
+                middleLeft = ""
+                middleMiddle = ""
+                middleRight = ""
+                lowerLeft = ""
+                lowerMiddle = ""
+                lowerRight = ""
+                
+                gameWon = false
+                currentTurn = 1
+                currentPlayer = nought
+                
+            }, label: {
+                Text("New Game")
+            })
+            // Only show when game is over
+            .opacity(gameWon ? 1.0 : 0.0)
             
             Spacer()
         }
