@@ -46,7 +46,7 @@ struct TileView: View {
                         .easeIn(duration: 0.5)
                 ) {
                     // Spin the tile
-                    tileRotation = 720
+                    tileRotation += 720
 
                     // Now, fill tile with symbol for current player
                     state = player
