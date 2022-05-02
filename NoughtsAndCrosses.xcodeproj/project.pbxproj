@@ -56,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				81DDFE6828204185008DED99 /* NoughtsAndCrossesApp.swift */,
+				81DDFE7D28204250008DED99 /* Model */,
 				81DDFE762820418D008DED99 /* Views */,
 				81DDFE6C28204187008DED99 /* Assets.xcassets */,
 				81DDFE6E28204187008DED99 /* Preview Content */,
@@ -74,9 +75,8 @@
 		81DDFE762820418D008DED99 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				81DDFE7D28204250008DED99 /* Model */,
-				81DDFE79282041F0008DED99 /* Helpers */,
 				81DDFE77282041AD008DED99 /* GameBoardView.swift */,
+				81DDFE79282041F0008DED99 /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
