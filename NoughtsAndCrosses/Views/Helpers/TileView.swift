@@ -27,6 +27,7 @@ struct TileView: View {
             .padding(5)
             .rotation3DEffect(.degrees(tileRotation),
                               axis: (x: 0, y: 1, z: 0))
+            .contentShape(Rectangle())
             .onTapGesture {
                 
                 print("inside tile")
