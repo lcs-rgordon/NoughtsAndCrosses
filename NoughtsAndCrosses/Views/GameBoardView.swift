@@ -102,15 +102,25 @@ struct GameBoardView: View {
             
             Spacer()
             
-            // Print turn, or whether game is won
-            Text(gameWon ? "\(currentPlayer) wins" : "Turn is: \(currentTurn)")
+            ZStack {
+                // Print who wins (only show when game is won)
+                Text("\(currentPlayer) wins.")
+                    .opacity(gameWon ? 1.0 : 0.0)
+                
+
+                // Print turn (only show when game is not won)
+                Text("Turn is: \(currentTurn)")
+                    .opacity(!gameWon ? 1.0 : 0.0)
+            }
+            .font(.largeTitle)
             
             Spacer()
             
+            // Who is the current player? (only show when game not won)
             Text("Current player is: \(currentPlayer)")
-            // Only show when game is not over
-            .opacity(!gameWon ? 1.0 : 0.0)
-
+                .opacity(!gameWon ? 1.0 : 0.0)
+                .font(.largeTitle)
+            
             Button(action: {
                 
                 upperLeft = empty
@@ -152,31 +162,31 @@ struct GameBoardView: View {
             upperLeft == currentPlayer &&
                 upperMiddle == currentPlayer &&
                 upperRight == currentPlayer ||
-
+                
                 middleLeft == currentPlayer &&
                 middleMiddle == currentPlayer &&
                 middleRight == currentPlayer ||
-
+                
                 lowerLeft == currentPlayer &&
                 lowerMiddle == currentPlayer &&
                 lowerRight == currentPlayer ||
-
+                
                 upperLeft == currentPlayer &&
                 middleLeft == currentPlayer &&
                 lowerLeft == currentPlayer ||
-
+                
                 upperMiddle == currentPlayer &&
                 middleMiddle == currentPlayer &&
                 lowerMiddle == currentPlayer ||
-
+                
                 upperRight == currentPlayer &&
                 middleRight == currentPlayer &&
                 lowerRight == currentPlayer ||
-
+                
                 upperLeft == currentPlayer &&
                 middleMiddle == currentPlayer &&
                 lowerRight == currentPlayer ||
-
+                
                 upperRight == currentPlayer &&
                 middleMiddle == currentPlayer &&
                 lowerLeft == currentPlayer
