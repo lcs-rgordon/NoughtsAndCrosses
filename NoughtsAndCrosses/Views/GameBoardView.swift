@@ -31,6 +31,7 @@ struct GameBoardView: View {
     // MARK: Computed properties
     var body: some View {
         VStack {
+            
             Spacer()
             
             // The game board views
@@ -40,11 +41,15 @@ struct GameBoardView: View {
                     Spacer()
                     
                     TileView(state: $upperLeft,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
+
                     TileView(state: $upperMiddle,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
                     TileView(state: $upperRight,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
 
                     Spacer()
                 }
@@ -53,11 +58,14 @@ struct GameBoardView: View {
                     Spacer()
                     
                     TileView(state: $middleLeft,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
                     TileView(state: $middleMiddle,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
                     TileView(state: $middleRight,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
 
                     Spacer()
                 }
@@ -66,11 +74,14 @@ struct GameBoardView: View {
                     Spacer()
                     
                     TileView(state: $lowerLeft,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
                     TileView(state: $lowerMiddle,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
                     TileView(state: $lowerRight,
-                             player: $currentPlayer)
+                             player: $currentPlayer,
+                             turn: $currentTurn)
 
                     Spacer()
                 }
@@ -78,6 +89,17 @@ struct GameBoardView: View {
             }
             
             Spacer()
+            
+            Text("Turn is: \(currentTurn)")
+            
+            Spacer()
+            
+            Text("Current player is: \(currentPlayer)")
+
+            Spacer()
+        }
+        .onChange(of: currentTurn) { newValue in
+            print("Hello, it is now turn \(newValue)")
         }
     }
 }
